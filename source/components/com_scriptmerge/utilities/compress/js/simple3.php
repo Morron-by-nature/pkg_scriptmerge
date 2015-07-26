@@ -18,7 +18,7 @@ class ScriptMergeUtilitiesCompressJsSimple3 implements ScriptMergeUtilitiesCompr
 			$string = preg_replace("/(\/\*\*\/)(\/\/(?!([^\n\r]*?\*\/)).*)/", "$1", $string);
 	$string = preg_replace("/\\\\n/", "VQerT", $string);
 	$string = preg_replace("/\\\\r/", "ZQerT", $string);
-//	$string = preg_replace("/(\/\*@)([^\n\r]*?)(@\*\/)/", "YUTTy$2ZUTTx", $string);				
+			
     do {$string = preg_replace("/(http(s)?\:)([^\r\n]*?)(\/\/)/", "$1$3qDdXX", $string, 1, $count);} while ($count); 
     ////---------------------------------------------------------------------------------------------------------
     // Remove all extra new lines after [ and \
