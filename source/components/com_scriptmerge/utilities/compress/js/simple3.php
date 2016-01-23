@@ -24,8 +24,6 @@ class ScriptMergeUtilitiesCompressJsSimple3 implements ScriptMergeUtilitiesCompr
     $string = preg_replace("/(\;\s*|\,\s*|\{\s*|\}\s*|\+\s*|\?\s*|[\n\r]\s*)((?!([\'\"]))\/\*)(?!(\*\/))[\s\S]*?(\*\/)/", "$1\n", $string);
     do {$string = preg_replace('/([^\/\"\'\*a-zA-Z0-9\>])\/\*(?!(\*\/))[^\n\r@]*?\*\/(?=([\/\"\'\\\\\*a-zA-Z0-9\>\s=\)\(\,:;\.\}\{\|\]\[]))/', "$1", $string, 1, $count);} while ($count); 
     $string = preg_replace("/([\;\n\r]\s*)\/\/.*/", "$1\n", $string);	
-    $string = preg_replace("/(\/\*)(\\\\n)/", "pDdYXAQerT", $string);
-    $string = preg_replace("/(\*\/)(\\\\n)/", "ODdPKBQerT", $string);
     $string = preg_replace("/(\/\s\/)([g][\W])/", "ZUQQ$2", $string);
     $string = preg_replace("/\\\\n/", "AQerT", $string);
     $string = preg_replace("/\\\\r/", "BQerT", $string);	
@@ -54,8 +52,8 @@ class ScriptMergeUtilitiesCompressJsSimple3 implements ScriptMergeUtilitiesCompr
     $string = preg_replace("/([\|\[])\s*([\|\]])/", "$1$2", $string);
     do {$string = preg_replace('/(AwTc)([^\r\nC]*?)(\/\*)(?=([^\r\n]*?CwRc))/', '$1$2pDdYX', $string, 1, $count);} while ($count);
     do {$string = preg_replace('/(AwTc)([^\r\nC]*?)(\*\/)(?=([^\r\n]*?CwRc))/', '$1$2ODdPK', $string, 1, $count);} while ($count);
-    do {$string = preg_replace('/(AwTc)([^\r\nC]*?)(\/\/)(?=([^\r\n]*?CwRc))/', '$1$2qDdXX', $string, 1, $count);} while ($count); 	
-    $string = preg_replace("/([^\(\/\"\']\s*)((\()(?=([^\n\r\)]*?[\'\"]))(?!(function|\)|[^\r\n]*?\"\s*\+[^\r\n]*?\+\s*\"|[^\r\n]*?\"\s*\<[^\r\n]*?\>\s*\"|[^\r\n]*?\"\s*\\\\\s*\"|[^\r\n]*?\"\s*\[[^\r\n]*?\]\s*\"))([^()]*?\)))(?!(\s*\"\s*\;|\s*\'\s*\;|\s*\/|\s*\)|\s*\"|[^\n\r]*?\"\s*\+\s*(\n|\r)?\s*\"))/", "$1 /*Yu*/ $2 /*Zu*/ ", $string);	
+    do {$string = preg_replace('/(AwTc)([^\r\nC]*?)(\/\/)(?=([^\r\n]*?CwRc))/', '$1$2qDdXX', $string, 1, $count);} while ($count); 
+    $string = preg_replace("/([^\(\/\"\']\s*)(?!\(\s*function)((\()(?=([^\n\r\)]*?[\'\"]))(?!([^\r\n]*?\"\s*\<[^\r\n]*?\>\s*\"|[^\r\n]*?\"\s*\\\\\s*\"|[^\r\n]*?\"\s*\[[^\r\n]*?\]\s*\"))((?>[^()]+)|(?2))*?\))(?!(\s*\"\s*\;|\s*\'\s*\;|\s*\/|\s*\)|\s*\"|[^\n\r]*?\"\s*\+\s*(\n|\r)?\s*\"))/", "$1 /*Yu*/ $2 /*Zu*/ ", $string);
     do {$string = preg_replace('/(\/\*Yu\*\/)([^\r\n]*?)(\/)(\/)(?=([^\r\n]*?\/\*Zu\*\/))/', '$1$2qDdXX', $string, 1, $count);} while ($count); 
     do {$string = preg_replace("/(\/\*Yu\*\/)([^\n\r\'\"]*?[\"\'])([^\n\r\)]*?)(\/\*)([^\n\r\'\"\)]*?[\"\'])([^\n\r]*?\/\*Zu\*\/)/", "$1$2$3pDdYX$5$6", $string, 1, $count);} while ($count);
     do {$string = preg_replace("/(\/\*Yu\*\/)([^\n\r\'\"]*?[\"\'])([^\n\r\)]*?)(\*\/)([^\n\r\'\"\)]*?[\"\'])([^\n\r]*?\/\*Zu\*\/)/", "$1$2$3ODdPK$5$6", $string, 1, $count);} while ($count);
@@ -89,22 +87,21 @@ class ScriptMergeUtilitiesCompressJsSimple3 implements ScriptMergeUtilitiesCompr
     $string = preg_replace("/(?!([^\n\r]*?[\'\"]))(\s*<!--.*-->)(?!(<\/div>))[^\n\r]*?.*/","$2$4", $string);
     $string = preg_replace("/([\n\r][^\n\r\*\,\"\']*?)(?=([^\*\,\:\;a-zA-Z\"]*?))(\/)(\/)+(?!([\r\n\*\+\"]*?([^\r\n]*?\*\/|[^\r\n]*?\"\s*\+|([^\r\n]*?=\";)))).*/", "$1", $string);
     $string = preg_replace("/(?!([^\n\r]*?[\'\"]))(\s*<!--.*-->)(?!(<\/div>))[^\n\r]*?(\*\/)?.*/","", $string);
-    $string = preg_replace("/qDdXX/", "//", $string);  
-    $string = preg_replace("/pDdYX/", "/*", $string);   
-    $string = preg_replace("/ODdPK/", "*/", $string);   
+    $string = preg_replace("/(<!--.*?-->)(?=(\s*<\/div>))/","", $string);
+    $string = preg_replace("/qDdXX/", "//", $string); 
+    $string = preg_replace("/pDdYX/", "/*", $string); 
+    $string = preg_replace("/ODdPK/", "*/", $string);  
     $string = preg_replace("/RDdPK/", "*/*", $string);   
     $string = preg_replace("/TDdXX/", "//*", $string);  
     $string = preg_replace('/WQerT/', '\\\\r\\\\n" +', $string);  
-    $string = preg_replace('/YQerT/', '//*/\\\\r\\\\n" +', $string);  
-    $string = preg_replace('/AQerT/', '\\\\n', $string); 
-    $string = preg_replace('/BQerT/', '\\\\r', $string);  
+    $string = preg_replace('/YQerT/', '//*/\\\\r\\\\n" +', $string);   
+    $string = preg_replace('/AQerT/', '\\\\n', $string);   
+    $string = preg_replace('/BQerT/', '\\\\r', $string);   
     $string = preg_replace("/ZUQQ/", "/ /", $string);
     $string = preg_replace('/\s\/\*Zu\*\/\s/', '', $string);  
-    $string = preg_replace('/\s\/\*Yu\*\/\s/', '', $string);
-    $string = preg_replace('/(AwTc)/', '', $string);  
+    $string = preg_replace('/\s\/\*Yu\*\/\s/', '', $string); 
+    $string = preg_replace('/(AwTc)/', '', $string); 
     $string = preg_replace('/(CwRc)/', '', $string); 
-    $string = preg_replace('/(qDdu)/', '', $string); 
-    $string = preg_replace('/ZXKd/', '', $string);  
     $string = preg_replace("/([a-zA-Z0-9]\s?)\s*[\n\r]+(\s*[\)\,&]\s?)(\s*[\r\n]+\s*[\{])/", "$1$2$3", $string); 
     $string = preg_replace("/([a-zA-Z0-9\(]\s?)\s*[\n\r]+(\s*[;\)\,&\+\-a-zA-Z0-9]\s?)(\s*[\{;a-zA-Z0-9\,&\n\r])/", "$1$2$3", $string); 
     $string = preg_replace("/(\(\s?)\s*[\n\r]+(\s*function)/", "$1$2", $string);
@@ -124,11 +121,11 @@ class ScriptMergeUtilitiesCompressJsSimple3 implements ScriptMergeUtilitiesCompr
     $string = preg_replace('/([\n\r][^\n\r\"]*?)([^\/\"\'\*\>])\/\*(?!(\*\/))[^\n\r\"]*?[^@]\*\//', "$1$2", $string);
     $string = preg_replace("/(\|\||[\?]|\,)(\s*)\/\/(?!([^\n\r]*?\*\/|\"|\')).*/", "$1$2", $string);
     $string = preg_replace("/([\|\[\;\,\:\=\-\{\}\]\[\?\)\(])\s*[\n\r]\s*[\n\r](\s*[\n\r])+/", "$1\n", $string);
-    //END Remove comments.    //START Remove all whitespaces	
+    //END Remove comments.    //START Remove all whitespaces. Compression!	
     $string = preg_replace('/(--\s+\>)/', 'HwRc', $string);
     $string = preg_replace('/\s+/', ' ', $string);
     $string = preg_replace('/\s*(?:(?=[=\-\+\|%&\*\)\[\]\{\};:\,\.\<\>\!\@\#\^`~]))/', '', $string);
     $string = preg_replace('/(?:(?<=[=\-\+\|%&\*\)\[\]\{\};:\,\.\<\>\?\!\@\#\^`~]))\s*/', '', $string);
-    $string = preg_replace('/([^a-zA-Z0-9\s\-=+\|!@#$%^&*()`~\[\]{};:\'",<.>\/?])\s+([^a-zA-Z0-9\s\-=+\|!@#$%^&*()`~\[\]{};:\'",<.>\/?])/', '$1$2', $string); 
+    $string = preg_replace('/([^a-zA-Z0-9\s\-=+\|!@#$%^&*()`~\[\]{};:\'",<.>\/?])\s+([^a-zA-Z0-9\s\-=+\|!@#$%^&*()`~\[\]{};:\'",<.>\/?])/', '$1$2', $string);
     $string = preg_replace('/(HwRc)/', '-- >', $string);
-    // END Remove all whitespaces
+    //END Remove all whitespaces
