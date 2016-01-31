@@ -1,6 +1,6 @@
 <?php
 /**
- * Joomla! extension - ScriptMerge
+ * Joomla!! extension - ScriptMerge
  *
  * @author    Yireo (info@yireo.com)
  * @copyright Copyright 2015
